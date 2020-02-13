@@ -8,15 +8,8 @@ class Text extends Component {
       contador: 0,
     };
   }
-
-  // componentDidMount() {
-  //     this.timer = setInterval(() => {
-  //         this.incrementar();
-  //     }, 1000);
-  // }
   
   incrementar = () =>  {
-    //debugger;
     const { contador } = this.state;
     this.setState({ contador: contador + 1 });
   }
