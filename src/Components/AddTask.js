@@ -17,6 +17,7 @@ export default class AddTask extends Component {
      const { taskTitle } = this.state; 
      const { addNewTask } = this.props;
      addNewTask(taskTitle);
+
     }
 
     render(){

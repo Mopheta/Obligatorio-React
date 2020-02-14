@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 //Components
 import Tasks from './Tasks'
 import AddTask from './AddTask'
-
+//formik
 export default class TaskMenu extends Component{
     constructor(props){
         super(props);
@@ -30,14 +30,27 @@ export default class TaskMenu extends Component{
         })
     }
 
+    removeTask = (taskId) => {
+        const { tasklist } = this.state;
+
+        this.setState({
+           tasklist: tasklist.filter(e => e.id !== taskId)  
+        })
+    }
+
     render(){
 
         const { tasklist } = this.state
-
+        
         return(
             <div>
-                <AddTask addNewTask={ this.addNewTask } />
-                <Tasks tasklist={ tasklist } />
+                <AddTask addNewTask={ this.addNewTask }/>
+                {
+                    tasklist.length > 0 ?
+                    <Tasks tasklist={ tasklist } removeTask = { this.removeTask } />
+                    : <p>Tas atomizando pariente, tomatela</p>
+                }
+                
             </div>
         )
     }
