@@ -10,19 +10,19 @@ export default class TaskMenu extends Component{
 
         this.state = {
             tasklist: [
-                {id: 0, title: "Task number 1", done: false},
-                {id: 1, title: "Task number 2", done: false},
-                {id: 2, title: "Task number 3", done: false},
-                {id: 3, title: "Task number 4", done: false},
-                {id: 4, title: "Task number 5", done: false},
+                // {id: 0, title: "Task number 1", done: false},
+                // {id: 1, title: "Task number 2", done: false},
+                // {id: 2, title: "Task number 3", done: false},
+                // {id: 3, title: "Task number 4", done: false},
+                // {id: 4, title: "Task number 5", done: false},
             ]
         }
     }
 
-    addNewTask = (newTask) => {
+    addNewTask = (id, newTask) => {
         const { tasklist } = this.state;
         const nTask = {
-            id: tasklist.length,
+            id: id,
             title: newTask
         }
         this.setState({
@@ -38,6 +38,13 @@ export default class TaskMenu extends Component{
         })
     }
 
+    editTask = (taskId) => {
+       const { tasklist } = this.statel;
+       const task = tasklist.find(e => e.id === taskId);
+
+       
+    }
+
     render(){
 
         const { tasklist } = this.state
@@ -48,7 +55,7 @@ export default class TaskMenu extends Component{
                 {
                     tasklist.length > 0 ?
                     <Tasks tasklist={ tasklist } removeTask = { this.removeTask } />
-                    : <p>Tas atomizando pariente, tomatela</p>
+                    : <p>No tasks entered, add the first..</p>
                 }
                 
             </div>

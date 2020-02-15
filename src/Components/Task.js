@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../Styles/task.css';
+import '../Styles/task.scss';
 
 export default class Task extends Component {
 
@@ -8,8 +8,8 @@ export default class Task extends Component {
         return(
             <div>
                 { task.id } - { task.title }
+                <input type="button" value="Edit" onClick={ () => removeTask(task.id) } className="task"/>
                 <input type="button" value="Remove" onClick={ () => removeTask(task.id) } className="task"/>
-
             </div> 
         )
     }
